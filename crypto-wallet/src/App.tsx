@@ -1,6 +1,5 @@
 import "./App.css";
 import WelcomePage from "./components/WelcomePage/WelcomePage";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 function App() {
   return (
@@ -13,7 +12,6 @@ function App() {
           padding: 12,
         }}
       >
-        <ConnectButton />
       </div>
     </div>
   );
