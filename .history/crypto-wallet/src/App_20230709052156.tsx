@@ -13,7 +13,10 @@ function App() {
           padding: 12,
         }}
       >
+        <h2>OR Connect With Web3 Wallet</h2>
+
         <ConnectButton />
+        <h2>OR Connect With Web3 Wallet</h2>
       </div>
     </div>
   );

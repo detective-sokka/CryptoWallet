@@ -12,7 +12,12 @@ function App() {
           justifyContent: "center",
           padding: 12,
         }}
-      >
+        <h1 style={{
+          display: "flex",
+          justifyContent: "center",
+          padding: 12,
+        }}>
+      
         <ConnectButton />
       </div>
     </div>

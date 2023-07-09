@@ -13,6 +13,7 @@ import {
 } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import {
+  Chain,
   mainnet,
   polygon,
   optimism,
@@ -59,6 +60,26 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </WagmiConfig>
   </React.StrictMode>
 );
+
+const customChains: Chain[] = [
+  {
+    name: "My Custom Chain",
+    chainId: 12345,
+    networkId: 12345,
+    rpcUrls: ["https://my.custom.chain/rpc"],
+    blockExplorerUrls: ["https://my.custom.chain/explorer"],
+    nativeCurrency: {
+      name: "My Custom Token",
+      symbol: "MCT",
+      decimals: 18,
+    },
+    iconUrl: "https://example.com/icons/my-custom-icon.png", // Add your custom icon URL here
+  },
+];
+
+const { chains, publicClient } = configureChains(customChains, [
+  publicProvider(),
+]);
 
 // ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 //   <React.StrictMode>

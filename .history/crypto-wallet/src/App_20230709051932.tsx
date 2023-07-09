@@ -13,6 +13,8 @@ function App() {
           padding: 12,
         }}
       >
+        <h1>Welcome to my app!</h1>
+
         <ConnectButton />
       </div>
     </div>

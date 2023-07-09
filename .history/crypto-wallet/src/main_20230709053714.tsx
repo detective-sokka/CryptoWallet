@@ -7,9 +7,9 @@
 
 import "@rainbow-me/rainbowkit/styles.css";
 import {
+  ConnectButton,
   getDefaultWallets,
   RainbowKitProvider,
-  darkTheme,
 } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import {
@@ -27,6 +27,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
+import "./components/WalletConnectPage";
 
 const { chains, publicClient } = configureChains(
   [mainnet, polygon, optimism, arbitrum, moonbeam, avalanche, fantom, zora],
@@ -48,13 +49,9 @@ const wagmiConfig = createConfig({
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider
-        chains={chains}
-        theme={darkTheme({
-          borderRadius: "medium",
-        })}
-      >
+      <RainbowKitProvider chains={chains}>
         <App />
+        <ConnectButton />
       </RainbowKitProvider>
     </WagmiConfig>
   </React.StrictMode>

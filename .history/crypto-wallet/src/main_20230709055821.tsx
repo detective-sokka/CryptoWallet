@@ -13,6 +13,7 @@ import {
 } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import {
+  Chain,
   mainnet,
   polygon,
   optimism,
@@ -59,6 +60,17 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </WagmiConfig>
   </React.StrictMode>
 );
+
+const defaultChains: Chain[] = [
+  {
+    ...mainnet,
+    iconUrl: "https://example.com/icons/ethereum.png",
+  },
+  {
+    ...optimism,
+    iconUrl: "https://example.com/icons/optimism.png",
+  },
+];
 
 // ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 //   <React.StrictMode>

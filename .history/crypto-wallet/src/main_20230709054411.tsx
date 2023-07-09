@@ -51,7 +51,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <RainbowKitProvider
         chains={chains}
         theme={darkTheme({
-          borderRadius: "medium",
+          borderRadius: "large",
         })}
       >
         <App />

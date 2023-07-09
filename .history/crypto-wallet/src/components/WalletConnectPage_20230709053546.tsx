@@ -1,16 +1,7 @@
-// import React from "react";
-// import ReactDOM from "react-dom/client";
-// import App from "./App.tsx";
-// import "./index.css";
-
-//@detective-sokka Below HEre is My code I added for the Rainbow Kit Wallet Functionality. I commented out the orginal code from forked repo
-
+import "./polyfills";
+// import "./global.css";
 import "@rainbow-me/rainbowkit/styles.css";
-import {
-  getDefaultWallets,
-  RainbowKitProvider,
-  darkTheme,
-} from "@rainbow-me/rainbowkit";
+import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import {
   mainnet,
@@ -25,8 +16,8 @@ import {
 import { publicProvider } from "wagmi/providers/public";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
-import "./index.css";
+// import App from "./App";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const { chains, publicClient } = configureChains(
   [mainnet, polygon, optimism, arbitrum, moonbeam, avalanche, fantom, zora],
@@ -48,20 +39,9 @@ const wagmiConfig = createConfig({
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider
-        chains={chains}
-        theme={darkTheme({
-          borderRadius: "medium",
-        })}
-      >
-        <App />
+      <RainbowKitProvider chains={chains}>
+        <ConnectButton />
       </RainbowKitProvider>
     </WagmiConfig>
   </React.StrictMode>
 );
-
-// ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );

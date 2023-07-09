@@ -10,6 +10,7 @@ import {
   getDefaultWallets,
   RainbowKitProvider,
   darkTheme,
+  lightTheme,
 } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import {
