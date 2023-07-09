@@ -6,11 +6,7 @@
 //@detective-sokka Below HEre is My code I added for the Rainbow Kit Wallet Functionality. I commented out the orginal code from forked repo
 
 import "@rainbow-me/rainbowkit/styles.css";
-import {
-  getDefaultWallets,
-  RainbowKitProvider,
-  darkTheme,
-} from "@rainbow-me/rainbowkit";
+import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import {
   mainnet,
@@ -27,6 +23,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
+import "./components/WalletConnectPage";
 
 const { chains, publicClient } = configureChains(
   [mainnet, polygon, optimism, arbitrum, moonbeam, avalanche, fantom, zora],
@@ -48,13 +45,9 @@ const wagmiConfig = createConfig({
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider
-        chains={chains}
-        theme={darkTheme({
-          borderRadius: "medium",
-        })}
-      >
+      <RainbowKitProvider chains={chains}>
         <App />
+        <ConnectButton />
       </RainbowKitProvider>
     </WagmiConfig>
   </React.StrictMode>

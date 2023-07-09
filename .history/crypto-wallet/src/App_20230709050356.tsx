@@ -1,6 +1,5 @@
 import "./App.css";
 import WelcomePage from "./components/WelcomePage/WelcomePage";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 function App() {
   return (

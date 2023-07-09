@@ -10,6 +10,7 @@ import {
   getDefaultWallets,
   RainbowKitProvider,
   darkTheme,
+  lightTheme,
 } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import {
@@ -50,9 +51,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider
         chains={chains}
-        theme={darkTheme({
-          borderRadius: "medium",
-        })}
+        theme={{
+          lightMode: lightTheme(),
+          darkMode: darkTheme(),
+        }}
       >
         <App />
       </RainbowKitProvider>

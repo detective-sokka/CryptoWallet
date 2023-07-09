@@ -33,6 +33,17 @@ const { chains, publicClient } = configureChains(
   [publicProvider()]
 );
 
+const defaultChains: chain[] = [
+  {
+    ...mainnet,
+    iconUrl: "https://example.com/icons/ethereum.png",
+  },
+  {
+    ...fantom,
+    iconUrl: "https://example.com/icons/optimism.png",
+  },
+];
+
 const { connectors } = getDefaultWallets({
   appName: "CryptoWallet",
   projectId: "0502da39e5bb78df630a0d6240a67a58",

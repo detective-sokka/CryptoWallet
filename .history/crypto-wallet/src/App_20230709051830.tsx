@@ -13,6 +13,7 @@ function App() {
           padding: 12,
         }}
       >
+        <p OR />
         <ConnectButton />
       </div>
     </div>
