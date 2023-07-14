@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "EZ Wallet",
+  "version": "1.0.1",
+  "description": "Crypto Hot Wallet Chrome Extension Called EZ Wallet",
+  "action": {
+    "default_popup": "./popup/popup.html"
+  },
+  "icons": {
+    "16": "logo.png",
+    "32": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
+  },
+
+  "content_scripts": [
+    {
+      "css": ["popup/popup.css"],
+      "js": ["scripts/content.js"],
+      "matches": [
+        "https://developer.chrome.com/docs/extensions/*",
+        "https://developer.chrome.com/docs/webstore/*",
+        "http://localhost:5173/*"
+      ]
+    }
+  ],
+
+  "host_permissions": ["https://developer.chrome.com/*"],
+  "permissions": ["activeTab", "tabs", "scripting"]
+}

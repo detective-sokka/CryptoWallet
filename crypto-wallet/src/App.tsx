@@ -11,8 +11,7 @@ function App() {
           justifyContent: "center",
           padding: 12,
         }}
-      >
-      </div>
+      ></div>
     </div>
   );
 }
