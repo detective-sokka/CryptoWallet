@@ -1,6 +1,90 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./WelcomePage.css";
 
+const serverUrl = "http://localhost:8080/"
+
 const WelcomePage = () => {
+
+  const [email, setEmail] = useState(' ');
+  const [password, setPassword] = useState(' ');
+  const navigate = useNavigate();
+
+  const loginUserAction = (e:any) => {
+
+    e.preventDefault();
+
+    console.log(JSON.stringify({
+          
+      password: password,
+      email: email,             
+  }));
+    fetch(serverUrl + "signin",{
+      method: "POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+          
+        password,
+        email,             
+      })
+    }).then(res=>res.json())
+    .then(data => {
+
+      if(data.error) {
+
+        console.log("Error logging in", data.error);
+      }
+
+      navigate('/dash');      
+
+    }).catch(err => {
+
+      console.log(err)
+    })
+
+  }
+
+  const registerUserAction = async (e:any) =>{
+
+    e.preventDefault();
+
+    console.log(JSON.stringify({
+          
+      password,
+      email             
+    }));
+
+    await fetch(serverUrl + "/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        password,
+        email       
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+
+        if (data.error) {
+          
+          console.log("Error registering", data.error);
+          
+        } else {
+
+          navigate("/");
+
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   return (
     <div className="container">
       <ul className="nav nav-tabs" id="account-tabs" role="tablist">
@@ -41,7 +125,7 @@ const WelcomePage = () => {
           role="tabpanel"
           aria-labelledby="signin-tab"
         >
-          <form className="form-signin text-center">
+          <form className="form-signin text-center" onSubmit={loginUserAction}>
             <img src="./logo.png" alt="" width="72" height="72" />
             <h3> Sign in </h3>
             <div className="form-group mb-2">
@@ -52,6 +136,7 @@ const WelcomePage = () => {
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
                 placeholder="Enter email"
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="form-group mb-2">
@@ -61,9 +146,10 @@ const WelcomePage = () => {
                 className="form-control"
                 id="exampleInputPassword1"
                 placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button type="submit" className="btn btn-outline-success">
+            <button type="submit" className="btn btn-outline-success" onSubmit={loginUserAction}>
               Submit
             </button>
           </form>
@@ -74,7 +160,7 @@ const WelcomePage = () => {
           role="tabpanel"
           aria-labelledby="register-tab"
         >
-          <form className="form-register text-center">
+          <form className="form-register text-center" onSubmit={registerUserAction}>
             <img src="./logo.png" alt="" width="72" height="72" />
             <h3> Register </h3>
             <div className="form-group mb-2">
@@ -103,7 +189,7 @@ const WelcomePage = () => {
                 placeholder="Repeat password"
               />
             </div>
-            <button type="submit" className="btn btn-outline-success">
+            <button type="submit" className="btn btn-outline-success" onSubmit={registerUserAction}>
               Submit
             </button>
           </form>

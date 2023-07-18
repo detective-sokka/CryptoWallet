@@ -1,19 +1,25 @@
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
 import WelcomePage from "./components/WelcomePage/WelcomePage";
+import Dashboard from "./components/Dashboard/Dashboard"
+
+const Routing = () => {
+
+  const navigate = useNavigate();
+
+  return (
+    <Routes>
+      <Route path="/" element={<WelcomePage/>}/>
+      <Route path="/dash" element={<Dashboard/>}/>
+    </Routes>
+  );
+}
 
 function App() {
   return (
-    <div className="wrapper">
-      <WelcomePage />
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          padding: 12,
-        }}
-      >
-      </div>
-    </div>
+   <BrowserRouter>
+    <Routing />
+   </BrowserRouter>
   );
 }
 

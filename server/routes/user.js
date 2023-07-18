@@ -3,17 +3,16 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
 
-router.post("/addUser", function (req, res) {
+router.post("/signup", function (req, res) {
   //Check if all fields are provided and are valid:
+  console.log(req);
+
   if (!req.body.email || !req.body.password) {
 
     res.status(400);
     res.json({ message: "Bad Request" });
 
   } else {
-
-    var email = req.body.email;
-    var password = req.body.password;
     
     const user = new User({
                 
@@ -35,19 +34,19 @@ router.post("/addUser", function (req, res) {
 });
 
 /* TODO - Use encryption to encrypt user data.*/
-router.get("/signin", function (req, res) {
+router.post("/signin", function (req, res) {
   
-  if (!req.query.email || !req.query.password) {
+  if (!req.body.email || !req.body.password) {
           
     res.status(400);    
     res.json({ message: "Bad Request" });
 
   } else {
 
-    console.log(req.query);
+    console.log(req.body);
     User.findOne({
 
-      email: req.query.email,
+      email: req.body.email,
     })
     .then((user) => {
 
@@ -68,7 +67,7 @@ router.get("/signin", function (req, res) {
 });
 
 /* TODO - Complete this */
-router.put("/edit", (req,res) => {
+router.put("/edit", async (req,res) => {
 
 });
 
