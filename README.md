@@ -25,11 +25,10 @@ Here are the steps to run the front-end of the website:
 ## TODOs
 
 - [x] ~Add login and registration front-end~
-- [ ] Add basic backend integration for login and registration
+- [x] ~Add basic backend integration for login and registration~
 - [ ] Add encryption for password and jwt for security
 - [ ] Complete the other REST APIs in user route
 - [ ] Add dashboard screen and routing
-- [ ] Encrypt login screen
-- [ ] Fetch user details from Ethereum blockchain and populate that in the dashboard
+- [ ] Completely dashboard functionalities
 
 
