@@ -1,35 +1,85 @@
-# Crypto wallet
+# Basic Web3 Wallet Extension Blueprint
 
-## Introduction
-The goal of this wallet is to have a single wallet login that can work with any chain, be it EVM compatible or not. 
+This repository contains the final code for the A beginner friendly Web3 Wallet Extension. This blueprint provides a way to create a browser extension that uses MoralisWeb3 to interact with EVM compatable networks.
 
-This project is powered using vite. The front-end is made using React + Typescript and the backend using Express.js and MongoDB. 
+## Getting Started
 
+To get started with this blueprint, follow these steps:
 
-## How to run?
+1. Clone this repository to your local machine:
+2. Navigate to the `Wallet_Extension/Final` directory:
 
-### Running the backend
-Here are the steps to run the server:
-1. Navigate to /server
-2. Install the node_modules - `npm i`
-3. Start the backend server - `node app.js` 
+## Front End
 
+1. cd mwallet
+2. npm i
+3. npm run start
 
-### Running the frontend
-Here are the steps to run the front-end of the website:
-1. Navigate to crypto-wallet vite project folder - `cd crypto-wallet`
-2. Install the node_modules - `npm i`
-3. Start the server - `npm run dev`
+## Back End
 
+1. With the Front End running Open a new terminal
+2. cd backend
+3. node index.js
 
-## TODOs
+## Build the Chrome Extension
 
-- [x] ~Add login and registration front-end~
-- [ ] Add basic backend integration for login and registration
-- [ ] Add encryption for password and jwt for security
-- [ ] Complete the other REST APIs in user route
-- [ ] Add dashboard screen and routing
-- [ ] Encrypt login screen
-- [ ] Fetch user details from Ethereum blockchain and populate that in the dashboard
+1. Open new Terminal
+2. cd mwallet
+3. npm run build
+4. Load the extension into your browser:
+5. Open the Chrome browser and navigate to `chrome://extensions`.
+6. Turn on "Developer mode" in the top right corner.
+7. Click "Load unpacked" and select the `build` directory in this repository.
 
+- For Mozilla Firefox:
+  1. Open Firefox and navigate to `about:debugging`.
+  2. Click "This Firefox" on the left sidebar.
+  3. Click "Load Temporary Add-on" and select the `manifest.json` file in the `build` directory of this repository.
 
+1. Use the extension to interact with the [Ethereum] network.
+
+## Features
+
+Sign in With Seed Phrase
+Generate a Wallet From the Login
+Send and receive Tokens
+Display all the Tokens in the Users Wallet Without having to put each token in manually
+
+## TODO/FIX
+
+Wallet View to Display Tokens
+
+- Check Walletview.js May need to add tokens /> slot/prop
+
+Store Login Credentals in local storage
+
+- Currently, clicking outside chrome extension will sign you out
+
+Check for Code Quality
+Update Documentation
+Intergrate with Orginal Wallet
+
+## Useful Things
+
+### Youtube Tutorial
+
+[Youtube Tutorial](https://www.youtube.com/watch?v=2ZYtqX4rOAU&list=PLFPZ8ai7J-iRWshCLIBLYM_QAuDU9r1yw&index=17&ab_channel=MoralisWeb3)
+
+### Github Repo
+
+[MoralisWeb3 Wallet Extension Blueprint GitHub Repo](https://github.com/MoralisWeb3/moralis-blueprints/tree/main/Wallet_Extension/Final)
+
+### Moralis Documentation
+
+[MoralisWeb3 Documentation ↗](https://docs.moralis.io/)
+
+## Requirements
+
+1. Create a Moralis Account for Moralis API Key moralis.io
+2. EVM and Mumbai Polygon RPC-URL (You can get a free RPC-URL on Alchemy or Infura)
+
+## License
+
+This blueprint is licensed under the [MIT License](LICENSE).
+
+I hope this helps!
